@@ -39,19 +39,70 @@ const initHTML = `
 <html>
 <head>
     <title>File Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Select File Type to Convert</h1>
-    <form action="/convert" method="post" enctype="multipart/form-data">
-        <input type="radio" name="fileType" value="text"> PDF Converter<br>
-        <input type=radio name="fileType" value="image"> Image Converter<br>
-        <input type="radio" name="fileType" value="docx"> DOCX to PDF Converter<br>
-        <input type="radio" name="fileType" value="doc"> DOC to PDF Converter<br>
-        
-        <input type="file" name="file" required>
-        <br>
-        <input type="submit" value="Convert">
-    </form>
+    <div class="container">
+        <h1>Select File Type to Convert</h1>
+        <form action="/convert" method="post" enctype="multipart/form-data">
+            <label>
+                <input type="radio" name="fileType" value="text"> Convert Text to PDF
+            </label>
+            <label>
+                <input type="radio" name="fileType" value="image"> Convert Image to JPEG
+            </label>
+            <label>
+                <input type="radio" name="fileType" value="docx"> Convert DOCX to PDF
+            </label>
+            <label>
+                <input type="radio" name="fileType" value="doc"> Convert DOC to PDF
+            </label>
+            <input type="file" name="file" required>
+            <button type="submit">Convert</button>
+        </form>
+    </div>
 </body>
 </html>
 `
